@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cotação - QG.Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QG.Cotações</h1>
+            <p>Preencha os dados obrigatórios (*) para gerar a cotação</p>
+        </header>
+
+        <main class="card">
+            <form id="quotation-form">
+                
+                <!-- SEÇÃO REMETENTE (COLETA) -->
+                <div class="form-section">
+                    <h3>Dados de Coleta (Remetente)</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>CNPJ Remetente *</label>
+                            <input type="text" id="r_cnpj" required placeholder="00.000.000/0000-00">
+                        </div>
+                        <div class="form-group">
+                            <label>Nome da Empresa *</label>
+                            <input type="text" id="r_name" required placeholder="Nome da sua empresa">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>CEP Coleta *</label>
+                            <input type="text" id="r_cep" required placeholder="00000-000">
+                        </div>
+                        <div class="form-group" style="flex: 2;">
+                            <label>Endereço de Coleta *</label>
+                            <input type="text" id="r_street" required placeholder="Rua / Avenida">
+                        </div>
+                        <div class="form-group">
+                            <label>Nº *</label>
+                            <input type="text" id="r_number" required placeholder="123">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Bairro *</label>
+                            <input type="text" id="r_district" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade *</label>
+                            <input type="text" id="r_city" required>
+                        </div>
+                        <div class="form-group mini">
+                            <label>UF *</label>
+                            <input type="text" id="r_uf" required maxlength="2">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO CARGA -->
+                <div class="form-section">
+                    <h3>Dados da Carga</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nota Fiscal</label>
+                            <select id="has_invoice">
+                                <option value="Sim">Sim (Possui NF)</option>
+                                <option value="Não">Não (Declaração)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Número do Orçamento</label>
+                            <input type="text" id="budget_number" placeholder="Ex: SUELEN-ORÇ-001">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tipo de Mercadoria *</label>
+                            <input type="text" id="merchandise_type" required placeholder="Ex: Coletor Solar">
+                        </div>
+                        <div class="form-group">
+                            <label>Valor Total da NF (R$) *</label>
+                            <input type="text" id="invoice_value" required placeholder="0,00">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO DESTINATÁRIO (ENTREGA) -->
+                <div class="form-section">
+                    <h3>Dados de Entrega (Destinatário)</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>CNPJ/CPF Destinatário *</label>
+                            <div class="input-with-btn">
+                                <input type="text" id="d_cnpj" required>
+                                <button type="button" id="btn-cnpj-d" class="btn-api" title="Buscar CNPJ">🔍</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Nome / Razão Social *</label>
+                            <input type="text" id="d_name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>CEP Entrega *</label>
+                            <div class="input-with-btn">
+                                <input type="text" id="d_cep" required>
+                                <button type="button" id="btn-cep-d" class="btn-api" title="Buscar CEP">🔍</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Pagador do Frete</label>
+                            <select id="freight_payer">
+                                <option value="CIF">CIF (Remetente paga)</option>
+                                <option value="FOB">FOB (Destinatário paga)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group" style="flex: 2;">
+                            <label>Endereço de Entrega *</label>
+                            <input type="text" id="d_street" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nº *</label>
+                            <input type="text" id="d_number" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Bairro *</label>
+                            <input type="text" id="d_district" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade *</label>
+                            <input type="text" id="d_city" required>
+                        </div>
+                        <div class="form-group mini">
+                            <label>UF *</label>
+                            <input type="text" id="d_uf" required maxlength="2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Complemento</label>
+                        <input type="text" id="d_complement" placeholder="Ex: Galpão A / Apartamento 12">
+                    </div>
+                </div>
+
+                <!-- SEÇÃO VOLUMES -->
+                <div class="form-section">
+                    <h3>Detalhes dos Volumes</h3>
+                    <div id="volumes-container">
+                        <div class="volume-item">
+                            <div class="form-row">
+                                <div class="form-group mini"><label>Qtd</label><input type="number" class="v-qty" value="1" min="1" required></div>
+                                <div class="form-group mini"><label>Alt(cm)</label><input type="number" class="v-alt" required></div>
+                                <div class="form-group mini"><label>Larg(cm)</label><input type="number" class="v-larg" required></div>
+                                <div class="form-group mini"><label>Comp(cm)</label><input type="number" class="v-comp" required></div>
+                                <div class="form-group mini"><label>Peso(kg)</label><input type="number" class="v-weight" step="0.01" required></div>
+                                <button type="button" class="btn-remove">×</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="add-volume" class="btn-secondary">+ Adicionar Volume</button>
+                </div>
+
+                <!-- BARRA DE TOTAIS -->
+                <div class="totals-bar">
+                    <div class="total-item">Volumes: <span id="res-qty">1</span></div>
+                    <div class="total-item">Peso Total: <span id="res-weight">0.00</span>kg</div>
+                    <div class="total-item">Cubagem: <span id="res-cubic">0.000</span>m³</div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="btn-reset" class="btn-reset">Limpar Tudo</button>
+                    <button type="button" id="btn-generate" class="btn-primary">GERAR COTAÇÃO NO WHATSAPP</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>Desenvolvido por <a href="#">QG.Digital</a> 2025</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
