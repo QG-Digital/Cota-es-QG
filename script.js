@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 6. GERAÇÃO DA MENSAGEM DO WHATSAPP ---
     document.getElementById('btn-generate').addEventListener('click', () => {
-        const botNumber = "5543999999999"; // <--- COLOQUE O NÚMERO DO SEU BOT AQUI
+        const botNumber = "5543996117320"; // <--- COLOQUE O NÚMERO DO SEU BOT AQUI
         
         let volumesTexto = "";
         document.querySelectorAll('.volume-item').forEach(item => {
