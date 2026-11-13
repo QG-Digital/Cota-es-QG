@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 /* 
     QG COTAÇÕES - CSS REFORMULADO 2026
     Focado em Responsividade Extrema e UX 
@@ -5,22 +6,22 @@
 
 :root {
     --primary: #fa8700;
-    --primary-dark: #e07c00;
-    --secondary: #101f4d;
-    --secondary-light: #1c3580;
-    --bg: #f4f7f9;
+    --primary-dark: #d97000;
+    --secondary: #0d1b3e;
+    --secondary-light: #162d5e;
+    --bg: #F7F8FC;
     --white: #ffffff;
     --success: #10b981;
     --danger: #ef4444;
-    --gray-50: #f8fafc;
-    --gray-100: #f1f5f9;
-    --gray-200: #e2e8f0;
+    --gray-50: #F7F8FC;
+    --gray-100: #F0F3FA;
+    --gray-200: #E8ECF4;
     --gray-300: #cbd5e1;
     --gray-400: #94a3b8;
     --gray-500: #64748b;
     --gray-600: #475569;
     --gray-700: #334155;
-    --gray-800: #1e293b;
+    --gray-800: #0d1b3e;
     --gray-900: #0f172a;
     --radius-sm: 8px;
     --radius-md: 12px;
@@ -406,3 +407,9 @@ footer a:hover {
         flex: 1;
     }
 }
+
+/* polimento (padrão visual LocalInsta nas cores da QG) */
+.btn-primary{background:linear-gradient(45deg,#fa8700,#e07c00,#c46a00)!important;border:none;color:#fff;border-radius:12px;box-shadow:0 10px 22px -10px rgba(250,135,0,.75);transition:transform .2s ease,box-shadow .2s ease}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 26px -10px rgba(250,135,0,.85)}
+.card{border:1px solid #E8ECF4;border-radius:16px;box-shadow:0 12px 32px -20px rgba(13,27,62,.35)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#fa8700;box-shadow:0 0 0 3px rgba(250,135,0,.18)}
